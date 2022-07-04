@@ -26,7 +26,4 @@ public class UserConvertor
         ud.setPhone(userEntity.getPhone());
         return ud;
     }
-    {
-
-    }
 }
