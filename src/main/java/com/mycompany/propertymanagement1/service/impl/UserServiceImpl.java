@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService
 {
@@ -29,7 +31,16 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public UserDTO login(String email, String password) {
-        return null;
+    public UserDTO login(String email, String password)
+    {
+        UserDTO userDTO=null;
+       Optional<UserEntity> ue= userrepository.findByOwnerEmailAndPassword(email, password);
+        if(ue.isPresent())
+        {
+         userDTO=userConvertor.converEntitytToDto(ue.get());
+
+
+        }
+       return userDTO;
     }
 }

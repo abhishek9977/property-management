@@ -25,7 +25,7 @@ public class CalculatorController
         }
         else
         {
-            return num2-num2;
+            return num2 - num2;
         }
     }
 
