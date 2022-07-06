@@ -22,7 +22,9 @@ public class PropertyEntity
     @Column(name="property_title",nullable = false)
     private String title;
     private String description;
-   
     private Double price;
     private String address;
+    /*@ManyToOne(fetch =FetchType.LAZY)
+    @JoinColumn(name="user_id",nullable = false)
+    private UserEntity userEntity;*/
 }
