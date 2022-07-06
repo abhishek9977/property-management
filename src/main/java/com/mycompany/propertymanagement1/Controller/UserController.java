@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/user")
 public class UserController
@@ -21,7 +23,7 @@ public class UserController
     private UserService  userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> saveproperty(@RequestBody UserDTO userDTO)
+    public ResponseEntity<UserDTO> saveproperty(@Valid @RequestBody UserDTO userDTO)
     {
         userDTO=userService.register(userDTO);
         ResponseEntity<UserDTO> responseEntity= new ResponseEntity<>(userDTO, HttpStatus.CREATED);
